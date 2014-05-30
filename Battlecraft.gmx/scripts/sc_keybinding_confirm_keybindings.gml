@@ -24,8 +24,13 @@ if(position_meeting(mouse_x,mouse_y, id))
             }
         
         }
-    
-                room_goto(room_game_1);
+                with(all)
+                {
+                
+                    instance_destroy();
+                
+                }
+                room_goto(room_LobbyCustomizationLocalGame);
                 mouse_clear(mb_any);
                 keyboard_clear(keyboard_key);
     }

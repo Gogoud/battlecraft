@@ -70,92 +70,13 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CONSTANTS
+            <string>///GRIDS
 
-//KEYS
-CONST_KEY_FIRE = 0
-CONST_KEY_POWERUP = 0
-CONST_KEY_ACCELERATE = 0
-CONST_KEY_BRAKE = 0
-CONST_KEY_ROTATE_LEFT = 0
-CONST_KEY_ROTATE_RIGHT = 0
+GRID_battlecraft_stats = ds_grid_create(9,12);
 
-
-
-//MOVEMENT
-CONST_FRICTION = 0.01;
-CONST_ACCELERATION = 0.03;
-CONST_ACCELERATION_LIMIT = 7;
-CONST_TORQUE_ACCELERATION = 0.1;
-CONST_TORQUE_ACCELERATION_LIMIT = 3;
-CONST_LANDFRICTION = 0.05;
-CONST_TREE_IMPACT_SPEED_REDUCTION = 0.05;
-CONST_BOOST_DECREASE = 0.5;
-
-
-
-//STATS
-
-CONST_MAX_HP = 100;
-
-//ATTACK
-    //MACHINEGUN
-    
-    CONST_MACHINEGUN_RELOAD_TIME = room_speed *1;
-    CONST_MACHINEGUN_KNOCKBACK = 0.5;
-    CONST_MACHINEGUN_ENEMY_KNOCKBACK = 3 //(knockback in pixels)
-    CONST_MACHINEGUN_DAMAGE = 1;
-
-    //BB12
-    CONST_RELOADSPEED_BB12 = 60;
-    CONST_KNOCKBACK_BB12 = 4;
-    
-    //CARPET BOMBER
-    
-    CONST_CARPETBOMBER_BOMBTIMER = room_speed*0.25;
-    CONST_CARPETBOMBER_SPEED = 1;
-    CONST_CARPETBOMBER_SCALE = 4;
-    
-    
-    
-    
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///VARIABLES
-
-VAR_torque_acceleration = 0;
-VAR_powerup_list_position = 0;
-
-//HP
-
-VAR_currentHP = CONST_MAX_HP;
-
-
-
-///WEAPONS
-
-//MACHINEGUN
-VAR_machinegun_reload_counter = CONST_MACHINEGUN_RELOAD_TIME-1;
-
+ini_open(working_directory + "configuration.ini");
+ds_grid_read(GRID_battlecraft_stats,ini_read_string("gameData", "battlecraft_stats", ""));
+ini_close();
 
 
 </string>
@@ -180,10 +101,11 @@ VAR_machinegun_reload_counter = CONST_MACHINEGUN_RELOAD_TIME-1;
             <kind>1</kind>
             <string>///FLAGS
 FLAG_recievedBoost = 0;
-
+FLAG_initialized = false;
 //Weapons
 FLAG_canAttack_metalStorm36 = 1;
 FLAG_canAttack_bb12 = 0;
+
 
 
 </string>
@@ -284,9 +206,155 @@ FLAG_recievedBoost = 2;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///CONSTANTS
+var CONST_TEMP_READ_KEY_HULL = "VAR_p"+string(CONST_PLAYER_ID+1)+"_battlecraft_hull_pos"; ///Used to read from configuration.ini
+var CONST_TEMP_READ_KEY_WEAPON = "VAR_p"+string(CONST_PLAYER_ID+1)+"_battlecraft_weapon_pos"; ///Used to read from configuration.ini
+
+
+ini_open(working_directory + "configuration.ini")
+var VAR_player_battlecraft_hull_pos = ini_read_real("gameData",CONST_TEMP_READ_KEY_HULL,-1);
+var VAR_player_battlecraft_weapon_pos = ini_read_real("gameData", CONST_TEMP_READ_KEY_WEAPON,-1);
+ini_close();
+
+//KEYS
+CONST_KEY_FIRE = 0
+CONST_KEY_POWERUP = 0
+CONST_KEY_ACCELERATE = 0
+CONST_KEY_BRAKE = 0
+CONST_KEY_ROTATE_LEFT = 0
+CONST_KEY_ROTATE_RIGHT = 0
+
+//STATS
+    
+    //HULL
+    CONST_MAX_HP = ds_grid_get(GRID_battlecraft_stats,1, VAR_player_battlecraft_hull_pos);
+    CONST_TORQUE_ACCELERATION = ds_grid_get(GRID_battlecraft_stats,2, VAR_player_battlecraft_hull_pos);
+    CONST_TORQUE_ACCELERATION_LIMIT = ds_grid_get(GRID_battlecraft_stats,3, VAR_player_battlecraft_hull_pos);
+    CONST_ACCELERATION = ds_grid_get(GRID_battlecraft_stats,4, VAR_player_battlecraft_hull_pos);
+    CONST_ACCELERATION_LIMIT = ds_grid_get(GRID_battlecraft_stats,5, VAR_player_battlecraft_hull_pos);
+    CONST_TREE_IMPACT_SPEED_REDUCTION = ds_grid_get(GRID_battlecraft_stats,6, VAR_player_battlecraft_hull_pos);
+    CONST_BOOST_DECREASE = ds_grid_get(GRID_battlecraft_stats,7, VAR_player_battlecraft_hull_pos);
+
+    
+    
+    CONST_FRICTION = 0.01;
+    
+    
+    
+
+    CONST_LANDFRICTION = 0.05;
+
+    
+
+
+
+
+
+//ATTACK
+    //MACHINEGUN
+    
+    CONST_MACHINEGUN_RELOAD_TIME = room_speed *1;
+    CONST_MACHINEGUN_KNOCKBACK = 0.5;
+    CONST_MACHINEGUN_ENEMY_KNOCKBACK = 3 //(knockback in pixels)
+    CONST_MACHINEGUN_DAMAGE = 1;
+
+    //BB12
+    CONST_RELOADSPEED_BB12 = 60;
+    CONST_KNOCKBACK_BB12 = 4;
+    
+    //CARPET BOMBER
+    
+    CONST_CARPETBOMBER_BOMBTIMER = room_speed*0.25;
+    CONST_CARPETBOMBER_SPEED = 1;
+    CONST_CARPETBOMBER_SCALE = 4;
+    
+    
+    
+    
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///VARIABLES
+
+VAR_torque_acceleration = 0;
+VAR_powerup_list_position = 0;
+
+//HP
+
+VAR_currentHP = CONST_MAX_HP;
+
+
+
+///WEAPONS
+
+//MACHINEGUN
+VAR_machinegun_reload_counter = CONST_MACHINEGUN_RELOAD_TIME-1;
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///INIT KEYBINDING
 sc_keybinding_readKeybindings();
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///FLAGS
+FLAG_initialized = true;
 </string>
           </argument>
         </arguments>
@@ -309,7 +377,8 @@ sc_keybinding_readKeybindings();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if(FLAG_initialized)
+{
     sc_friction();
 
     sc_battlecraft_landCollision();
@@ -339,7 +408,7 @@ sc_keybinding_readKeybindings();
          }*/
     
     }
-    
+}    
    
     
 
@@ -400,9 +469,12 @@ if(!ds_list_empty(LIST_POWERUPS))
           <argument>
             <kind>1</kind>
             <string>///DRAW SELF
-draw_self();
-draw_text(x,bbox_bottom+5,CONST_PLAYER_ID);
-draw_healthbar(bbox_left, bbox_bottom+2, bbox_right,bbox_bottom+10,VAR_currentHP, c_red,c_green,c_lime, 0,true,true);
+if(FLAG_initialized)
+{
+    draw_self();
+    draw_text(x,bbox_bottom+5,CONST_PLAYER_ID);
+    draw_healthbar(bbox_left, bbox_bottom+2, bbox_right,bbox_bottom+10,VAR_currentHP, c_red,c_green,c_lime, 0,true,true);
+}
 </string>
           </argument>
         </arguments>
