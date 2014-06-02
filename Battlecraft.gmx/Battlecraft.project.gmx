@@ -42,6 +42,12 @@
       <sprite>sprites\spr_button</sprite>
       <sprite>sprites\spr_arrow</sprite>
     </sprites>
+    <sprites name="Water">
+      <sprite>sprites\sprMask</sprite>
+      <sprite>sprites\sprNormalMap</sprite>
+      <sprite>sprites\sprReflection</sprite>
+      <sprite>sprites\sprSand</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -79,6 +85,10 @@
       </scripts>
       <script>scripts\sc_effect_freeze.gml</script>
       <script>scripts\sc_effect_createCloud.gml</script>
+      <scripts name="Blur">
+        <script>scripts\sc_effect_initBlur.gml</script>
+        <script>scripts\sc_effect_drawBlur.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Weapons">
       <script>scripts\sc_attack_machinegun.gml</script>
@@ -129,9 +139,25 @@
           <script>scripts\sc_customization_statemachineButtons.gml</script>
         </scripts>
       </scripts>
+      <scripts name="Main_menu">
+        <scripts name="Graphic_options">
+          <script>scripts\sc_optionGraphics_getResFromObjectname.gml</script>
+          <script>scripts\sc_optionGraphics_dropDownResMenuControl.gml</script>
+          <script>scripts\sc_optionGraphics_writeResolution.gml</script>
+          <script>scripts\sc_optionGraphics_setDisplayReset.gml</script>
+          <script>scripts\sc_optionGraphics_aaControl.gml</script>
+          <script>scripts\sc_optionGraphics_vsyncControl.gml</script>
+          <script>scripts\sc_optionGraphics_screenshakeControl.gml</script>
+          <script>scripts\sc_optionGraphics_getResolution.gml</script>
+        </scripts>
+        <script>scripts\sc_mainMenu_controller_statemachine.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\sc_globalGameStatBalance.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\fxWater.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\font_default</font>
   </fonts>
@@ -179,6 +205,32 @@
           <object>objects\obj_localLobbyButtonCustomizationParent</object>
         </objects>
       </objects>
+      <objects name="Lobby_main_menu">
+        <objects name="Options">
+          <objects name="Resolutions">
+            <object>objects\obj_mainMenu_res_640_360</object>
+            <object>objects\obj_mainMenu_res_800_600</object>
+            <object>objects\obj_mainMenu_res_1024_768</object>
+            <object>objects\obj_mainMenu_res_1280_720</object>
+            <object>objects\obj_mainMenu_res_1280_800</object>
+            <object>objects\obj_mainMenu_res_1366_768</object>
+            <object>objects\obj_mainMenu_res_1440_900</object>
+            <object>objects\obj_mainMenu_res_1600_900</object>
+            <object>objects\obj_mainMenu_res_1680_1050</object>
+            <object>objects\obj_mainMenu_res_1900_1080</object>
+            <object>objects\obj_mainMenu_dropDown_resolution</object>
+            <object>objects\obj_mainMenu_buttonParent_res</object>
+          </objects>
+          <object>objects\obj_mainMenu_vsync</object>
+          <object>objects\obj_mainMenu_aa</object>
+          <object>objects\obj_mainMenu_screenshake</object>
+        </objects>
+        <object>objects\obj_mainMenu_gotoOptions</object>
+        <object>objects\obj_mainMenu_gotoMain</object>
+        <object>objects\obj_mainMenu_startGame</object>
+        <object>objects\obj_mainMenu_buttonParent</object>
+        <object>objects\obj_mainMenu_controller</object>
+      </objects>
     </objects>
     <objects name="Game">
       <object>objects\obj_reference</object>
@@ -216,6 +268,10 @@
           <object>objects\obj_tree_splinters</object>
           <object>objects\obj_tree_whole</object>
         </objects>
+        <objects name="WATER_SHADER">
+          <object>objects\objWater</object>
+          <object>objects\objWaterOverlay</object>
+        </objects>
       </objects>
       <objects name="Battlecraft">
         <object>objects\obj_battlecraft</object>
@@ -228,6 +284,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_mainMenu</room>
     <room>rooms\room_LobbyKeybindingLocalGame</room>
     <room>rooms\room_LobbyCustomizationLocalGame</room>
     <room>rooms\room_game_1</room>

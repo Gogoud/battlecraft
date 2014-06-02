@@ -69,6 +69,8 @@
     <instance objName="obj_powerup_kissAndHug_torpedo" x="-192" y="32" name="inst_B544950D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_powerup_mineTorpedo" x="-256" y="32" name="inst_61F43C90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_powerup_carpetbomber" x="-352" y="32" name="inst_F8B5168C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWater" x="160" y="384" name="inst_991761D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWaterOverlay" x="128" y="352" name="inst_F5024E4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

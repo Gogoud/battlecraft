@@ -25,13 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sc_optionGraphics_setDisplayReset();
-sc_optionGraphics_getResolution();
-image_speed = 0;
-VAR_players = 2;
-draw_set_font(font_default);
-LIST_gamepads = ds_list_create();
-sc_keybinding_checkForGamePads();
+            <string>///INIT VSYNC VAR
+ini_open(working_directory + "\configuration.ini")
+FLAG_vsync = ini_read_real("graphics_options","vsync", false);
+ini_close();
 </string>
           </argument>
         </arguments>
@@ -54,33 +51,17 @@ sc_keybinding_checkForGamePads();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///PLAYER CONTROL
-if(position_meeting(mouse_x,mouse_y, id))
+            <string>if(position_meeting(mouse_x, mouse_y, id))
+{
+        image_index = 1;
+        sc_optionGraphics_vsyncControl();
+}
+else
 {
 
-    if(mouse_check_button_pressed(mb_left))
-    {
-    
-    
-        if(VAR_players &gt; 3)
-        {
-        
-            VAR_players = 2;
-        
-        }
-        else
-        {
-        
-            VAR_players ++;
-        
-        }
-    
-    }
-
+    image_index = 0;
 
 }
-
-
 </string>
           </argument>
         </arguments>
@@ -103,63 +84,19 @@ if(position_meeting(mouse_x,mouse_y, id))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///DRAW PLAYER BORDERS
-draw_self();
-draw_text(bbox_left+5, bbox_top+5, "Players: " + string(VAR_players));
-
-
-sc_lobbyDrawBorders();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///DRAW LASTKEY
-
-draw_text(bbox_left+8, bbox_top+30, "-Active keybinding- #KEY: " + chr(keyboard_lastkey) + "#UNICODE: " + string(keyboard_lastkey));
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>for(i = 0; i &lt;= ds_list_size(LIST_gamepads)-1; i++)
+            <string>draw_self();
+switch(FLAG_vsync)
 {
 
-    draw_text((16*i),500,ds_list_find_value(LIST_gamepads,i));
-
+    case true:
+        draw_text(bbox_left,y,"Vsync: On")
+        break;
+    
+    case false:
+        draw_text(bbox_left,y,"Vsync: Off");
+        break;
 }
+
 </string>
           </argument>
         </arguments>
@@ -178,7 +115,7 @@ draw_text(bbox_left+8, bbox_top+30, "-Active keybinding- #KEY: " + chr(keyboard_
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>64,27</point>
-    <point>64,64</point>
+    <point>128,55</point>
+    <point>128,128</point>
   </PhysicsShapePoints>
 </object>
