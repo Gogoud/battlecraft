@@ -152,6 +152,10 @@
         </scripts>
         <script>scripts\sc_mainMenu_controller_statemachine.gml</script>
       </scripts>
+      <scripts name="Transitions">
+        <script>scripts\sc_roomStart_initTransition.gml</script>
+        <script>scripts\sc_roomStart_controlTransition.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\sc_globalGameStatBalance.gml</script>
   </scripts>

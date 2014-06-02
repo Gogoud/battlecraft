@@ -25,13 +25,85 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sc_optionGraphics_setDisplayReset();
-sc_optionGraphics_getResolution();
-image_speed = 0;
-VAR_players = 2;
-draw_set_font(font_default);
+            <string>///List
 LIST_gamepads = ds_list_create();
-sc_keybinding_checkForGamePads();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Init
+image_speed = 0;
+
+sc_optionGraphics_setDisplayReset();
+sc_optionGraphics_getResolution();
+
+
+draw_set_font(font_default);
+
+//sc_keybinding_checkForGamePads();
+
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Variables
+VAR_players = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>sc_roomStart_initTransition();
 </string>
           </argument>
         </arguments>
@@ -81,6 +153,27 @@ if(position_meeting(mouse_x,mouse_y, id))
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>sc_roomStart_controlTransition();
 </string>
           </argument>
         </arguments>
@@ -154,12 +247,14 @@ draw_text(bbox_left+8, bbox_top+30, "-Active keybinding- #KEY: " + chr(keyboard_
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i = 0; i &lt;= ds_list_size(LIST_gamepads)-1; i++)
+            <string>/*for(i = 0; i &lt;= ds_list_size(LIST_gamepads)-1; i++)
 {
 
     draw_text((16*i),500,ds_list_find_value(LIST_gamepads,i));
 
 }
+
+
 </string>
           </argument>
         </arguments>
