@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///List
 LIST_gamepads = ds_list_create();
+
 </string>
           </argument>
         </arguments>
@@ -104,6 +105,7 @@ VAR_players = 2;
           <argument>
             <kind>1</kind>
             <string>sc_roomStart_initTransition();
+
 </string>
           </argument>
         </arguments>
@@ -174,6 +176,7 @@ if(position_meeting(mouse_x,mouse_y, id))
           <argument>
             <kind>1</kind>
             <string>sc_roomStart_controlTransition();
+
 </string>
           </argument>
         </arguments>
@@ -247,12 +250,14 @@ draw_text(bbox_left+8, bbox_top+30, "-Active keybinding- #KEY: " + chr(keyboard_
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*for(i = 0; i &lt;= ds_list_size(LIST_gamepads)-1; i++)
+            <string>///DRAW DEACTIVATED BUTTONS SURFACE
+for(i = 0; i &lt;= ds_list_size(LIST_gamepads)-1; i++)
 {
 
     draw_text((16*i),500,ds_list_find_value(LIST_gamepads,i));
 
 }
+
 
 
 </string>

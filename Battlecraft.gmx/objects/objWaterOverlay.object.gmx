@@ -3,7 +3,7 @@
   <spriteName>sprSand</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10000</depth>
+  <depth>100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>// water overlay surface.
 _waterSurface = -1;
+VAR_myWater = instance_create(x,y,objWater);
 
 </string>
           </argument>
@@ -52,39 +53,9 @@ _waterSurface = -1;
             <kind>1</kind>
             <string>// free surface if it exists.
 if(surface_exists(_waterSurface))
+{
     surface_free(_waterSurface);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// camera position change.
-if(keyboard_check(vk_left))
-    view_xview[0] -= 10;
-if(keyboard_check(vk_right))
-    view_xview[0] += 10;
-if(keyboard_check(vk_up))
-    view_yview[0] -= 10;
-if(keyboard_check(vk_down))
-    view_yview[0] += 10;
-
+}    
 </string>
           </argument>
         </arguments>
@@ -112,19 +83,25 @@ var waterPhase, sNormalMap, sReflection, uUvNormalMap, uUvReflection, uNormalsOf
 
 // create overlay surface if not exists (this is safe-way creation on context lost event).
 if(!surface_exists(_waterSurface))
-    _waterSurface = surface_create(view_wview[0], view_hview[0]);
-
+{
+    _waterSurface = surface_create(2048, 2048);
+}
 // draw all water instances into overlay using water mask sprite.
 surface_set_target(_waterSurface);
 draw_clear_alpha(c_black, 0.0);
-draw_set_blend_mode_ext(bm_src_alpha, bm_one);
+//draw_set_blend_mode_ext(bm_src_alpha, bm_one);
+
+
+
 with(objWater)
-    draw_sprite(sprMask, 0, x - view_xview[0], y - view_yview[0]);
+{
+    draw_sprite(sprMask, 0, x, y);
+}
 draw_set_blend_mode_ext(bm_src_alpha, bm_inv_src_alpha);
 surface_reset_target();
 
 // water and light animation phase.
-waterPhase = frac(current_time * 0.00005);
+waterPhase = frac(current_time * 0.00005);//SPEED
 lightPhase = degtorad(waterPhase * 360.0 * 4.0);
 
 // obtain textures samplers IDs (a.k.a. texture slots).
@@ -160,8 +137,8 @@ shader_set_uniform_f_array(uUvReflection, uvReflection);
 
 // send water animation offset (values in texture-space coords).
 shader_set_uniform_f(uNormalsOffset,
-    (view_xview[0] / view_wview[0]) + waterPhase,
-    (view_yview[0] / view_hview[0]) + waterPhase
+    (x/ 1000) + waterPhase,
+    (y / 1000) + waterPhase
 );
 
 // send refraction size (normalized values in texture-space coords).
@@ -183,7 +160,7 @@ shader_set_uniform_f(uScaleNormalMap, 6.0, 6.0);
 shader_set_uniform_f(uScaleReflection, 1.0, 1.0);
 
 // draw water surface.
-draw_surface(_waterSurface, view_xview[0], view_yview[0]);
+draw_surface(_waterSurface, 0, 0);
 
 // reset to main shader.
 shader_reset();

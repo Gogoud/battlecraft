@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///CONSTANTS
+CONST_SCREENSHAKE_LENGTH = 256;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -28,9 +52,20 @@
             <string>randomize();
 //sc_setScreenshake_parent("mineTorpedo_mine")
 
+for(i = 0; i &lt; CONST_PLAYERS; i++)
+{
+
+    var VAR_tempID = instance_find(obj_battlecraft,i);
+    if(distance_to_object(VAR_tempID) &lt; CONST_SCREENSHAKE_LENGTH)
+    {
+        sc_effect_createScreenshake("mineTorpedo_mine",VAR_tempID.CONST_PLAYER_ID);
+    }
+
+}
 
 repeat(irandom_range(3,8))
 {    
+    
     //sc_createAttackCircle(x,y, irandom_range(3,6), irandom_range(8,13));
     sc_effect_createCloud(irandom_range(x-5,x+5), irandom_range(y-5,y+5), random(3));
 }

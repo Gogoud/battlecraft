@@ -13,16 +13,16 @@
     <range0>32,255</range0>
   </ranges>
   <glyphs>
+    <glyph character="215" x="124" y="138" w="10" h="18" shift="12" offset="0"/>
     <glyph character="145" x="232" y="160" w="12" h="10" shift="14" offset="0"/>
     <glyph character="108" x="216" y="206" w="4" h="20" shift="6" offset="0"/>
     <glyph character="174" x="110" y="138" w="12" h="16" shift="14" offset="0"/>
-    <glyph character="215" x="124" y="138" w="10" h="18" shift="12" offset="0"/>
     <glyph character="122" x="158" y="94" w="10" h="20" shift="12" offset="0"/>
-    <glyph character="179" x="52" y="160" w="8" h="16" shift="10" offset="0"/>
-    <glyph character="166" x="34" y="228" w="2" h="20" shift="4" offset="0"/>
-    <glyph character="170" x="238" y="206" w="6" h="12" shift="8" offset="0"/>
-    <glyph character="142" x="2" y="206" w="12" h="10" shift="14" offset="0"/>
     <glyph character="207" x="92" y="206" w="6" h="20" shift="8" offset="0"/>
+    <glyph character="170" x="238" y="206" w="6" h="12" shift="8" offset="0"/>
+    <glyph character="179" x="52" y="160" w="8" h="16" shift="10" offset="0"/>
+    <glyph character="142" x="2" y="206" w="12" h="10" shift="14" offset="0"/>
+    <glyph character="166" x="34" y="228" w="2" h="20" shift="4" offset="0"/>
     <glyph character="197" x="230" y="94" w="10" h="20" shift="12" offset="0"/>
     <glyph character="154" x="16" y="184" w="12" h="10" shift="14" offset="0"/>
     <glyph character="246" x="2" y="116" w="10" h="20" shift="12" offset="0"/>

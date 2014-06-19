@@ -104,6 +104,29 @@ VAR_lockOnCountdown = CONST_LOCK_ON_COUNTDOWN_MAX;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///LIST
+
+LIST_enemyDistances = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -124,8 +147,14 @@ VAR_lockOnCountdown = CONST_LOCK_ON_COUNTDOWN_MAX;
             <kind>1</kind>
             <string>///AIM
 
-sc_powerup_kissAndHug_aim_lockOn(obj_reference);
-
+for(i = 0; i &lt; CONST_PLAYERS; i++)
+{
+    var VAR_enemies = instance_find(obj_battlecraft,i);
+    if(VAR_enemies != CONST_PARENT)
+    {
+        sc_powerup_kissAndHug_aim_lockOn(VAR_enemies);
+    }
+}
 if(!FLAG_lockOn)
 {
     sc_powerup_kissAndHug_aim_movement();

@@ -81,6 +81,7 @@ LIST_POWERUPS = ds_list_create();
 ds_list_add(LIST_POWERUPS, obj_powerup_kissAndHug_torpedo);
 ds_list_add(LIST_POWERUPS, obj_powerup_mineTorpedo);
 ds_list_add(LIST_POWERUPS, obj_powerup_carpetbomber);
+ds_list_add(LIST_POWERUPS, obj_powerup_shield);
 
 
 </string>

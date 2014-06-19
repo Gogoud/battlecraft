@@ -387,6 +387,7 @@ FLAG_initialized = true;
     VAR_powerup_list_position = sc_battlecraft_cyclePowerups(vk_lshift, vk_lcontrol, VAR_powerup_list_position)
     image_angle = direction-90;
     sc_battlecraft_movement();
+    sc_collision_solid();
     
     
     

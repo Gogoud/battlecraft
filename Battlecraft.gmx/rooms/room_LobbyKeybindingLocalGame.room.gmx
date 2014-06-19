@@ -51,20 +51,22 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_lobbyLocalGameController" x="800" y="128" name="inst_0EBFFD5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p1_fire" x="160" y="128" name="inst_0A8F3DCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_lobbyLocalGameConfirmChanges" x="800" y="256" name="inst_D429CE7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p1_powerup" x="160" y="256" name="inst_5154B6EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p1_accelerate" x="160" y="384" name="inst_8C6F91DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p1_brake" x="448" y="128" name="inst_1384D805" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p1_rotateLeft" x="448" y="256" name="inst_AC5C1619" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p1_rotateRight" x="448" y="384" name="inst_E0E72094" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p2_fire" x="1344" y="128" name="inst_B50D4F03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p2_powerup" x="1344" y="256" name="inst_9E719FE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p2_accelerate" x="1344" y="384" name="inst_AFDAC79C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p2_brake" x="1632" y="128" name="inst_855C31A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p2_rotateLeft" x="1632" y="256" name="inst_A3270EEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_keybind_p2_rotateRight" x="1632" y="384" name="inst_74AEAA5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lobbyLocalGameController" x="192" y="96" name="inst_0EBFFD5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p1_fire" x="544" y="864" name="inst_0A8F3DCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lobbyLocalGameConfirmChanges" x="192" y="416" name="inst_D429CE7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p1_powerup" x="544" y="480" name="inst_5154B6EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p1_accelerate" x="544" y="736" name="inst_8C6F91DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p1_brake" x="544" y="608" name="inst_1384D805" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p1_rotateLeft" x="544" y="224" name="inst_AC5C1619" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p1_rotateRight" x="544" y="352" name="inst_E0E72094" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p2_fire" x="1280" y="96" name="inst_B50D4F03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p2_powerup" x="1280" y="224" name="inst_9E719FE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p2_accelerate" x="1280" y="352" name="inst_AFDAC79C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p2_brake" x="1280" y="480" name="inst_855C31A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p2_rotateLeft" x="1280" y="608" name="inst_A3270EEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_p2_rotateRight" x="1280" y="736" name="inst_74AEAA5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keybind_checkForGamepads" x="192" y="256" name="inst_89AA63F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lobbyLocalGame_controllerSetting_parent" x="544" y="96" name="inst_B0263960" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -1,3 +1,11 @@
+
+if(ds_exists(obj_lobbyLocalGameController.LIST_gamepads,ds_type_list))
+{
+
+    ds_list_clear(obj_lobbyLocalGameController.LIST_gamepads);
+
+} 
+
  
 if(gamepad_is_supported() )
 {
@@ -11,11 +19,12 @@ if(gamepad_is_supported() )
         
              if(gamepad_is_connected(i))
              {   
-                ds_list_add(LIST_gamepads, true);
+                ds_list_add(obj_lobbyLocalGameController.LIST_gamepads, true);
+                
              }
              else
              {
-                ds_list_add(LIST_gamepads, false);
+                ds_list_add(obj_lobbyLocalGameController.LIST_gamepads, false);
              }
         
         }

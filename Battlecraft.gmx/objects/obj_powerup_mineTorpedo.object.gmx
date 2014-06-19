@@ -144,7 +144,7 @@ alarm[0] = CONST_SPAWN_MINES;
             <kind>1</kind>
             <string>if(sc_insideRectangle(0,0,room_width,room_height,self))
 {
-    direction = obj_battlecraft_1.direction + 180;
+    direction = CONST_PARENT.direction + 180;
     image_angle = direction-90;
     speed -= CONST_DE_ACCELERATION;
     
@@ -162,6 +162,7 @@ alarm[0] = CONST_SPAWN_MINES;
         }
         
         instance_destroy();
+        ds_list_destroy(LIST_mines);
 
     
     }

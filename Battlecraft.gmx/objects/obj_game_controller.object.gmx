@@ -99,7 +99,9 @@ LIST_playerIDS = ds_list_create();
 CONST_VIEW_WIDTH = 1280;
 CONST_VIEW_HEIGHT = 720;
 
+globalvar CONST_PLAYERS;
 CONST_PLAYERS = sc_gamecontroller_readPlayers();
+
 </string>
           </argument>
         </arguments>

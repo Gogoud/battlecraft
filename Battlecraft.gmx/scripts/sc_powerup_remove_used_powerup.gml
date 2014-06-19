@@ -1,1 +1,1 @@
-
+ds_list_delete(LIST_POWERUPS,VAR_list_position);

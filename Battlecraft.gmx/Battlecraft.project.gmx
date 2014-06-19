@@ -47,7 +47,15 @@
       <sprite>sprites\sprNormalMap</sprite>
       <sprite>sprites\sprReflection</sprite>
       <sprite>sprites\sprSand</sprite>
+      <sprites name="Original">
+        <sprite>sprites\sprite26</sprite>
+        <sprite>sprites\sprite27</sprite>
+        <sprite>sprites\sprite28</sprite>
+        <sprite>sprites\sprite29</sprite>
+      </sprites>
     </sprites>
+    <sprite>sprites\spr_powerup_shield</sprite>
+    <sprite>sprites\spr_water_shader</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -56,6 +64,7 @@
   <scripts name="scripts">
     <scripts name="Powerups">
       <scripts name="Kiss and hug torpedo">
+        <script>scripts\sc_powerup_kissAndHug_torpedo_collision.gml</script>
         <script>scripts\sc_powerup_kissAndHug_torpedo_ai.gml</script>
         <scripts name="Aim">
           <script>scripts\sc_powerup_kissAndHug_aim_movement.gml</script>
@@ -69,6 +78,9 @@
         <script>scripts\sc_powerup_carpetbomber_launch_bombrun.gml</script>
         <script>scripts\sc_powerup_carpetbomber_alpha_control.gml</script>
         <script>scripts\sc_powerup_carpetbomber_shakeView.gml</script>
+      </scripts>
+      <scripts name="Shield">
+        <script>scripts\sc_powerup_activate_shield.gml</script>
       </scripts>
       <script>scripts\sc_battleCraft_powerupCollision.gml</script>
       <script>scripts\sc_battlecraft_cyclePowerups.gml</script>
@@ -116,6 +128,7 @@
       <script>scripts\sc_snapToNearest.gml</script>
       <script>scripts\sc_limitInstances.gml</script>
       <script>scripts\sc_limitVariableValue.gml</script>
+      <script>scripts\sc_collision_solid.gml</script>
     </scripts>
     <scripts name="Lobby">
       <script>scripts\sc_lobbyDrawBorders.gml</script>
@@ -128,6 +141,7 @@
         <script>scripts\sc_keybinding_confirm_keybindings.gml</script>
         <scripts name="gamepad">
           <script>scripts\sc_keybinding_checkForGamePads.gml</script>
+          <script>scripts\sc_keybinding_switchControllers.gml</script>
         </scripts>
       </scripts>
       <scripts name="Customization">
@@ -185,8 +199,12 @@
             <object>objects\obj_keybind_p2_rotateLeft</object>
             <object>objects\obj_keybind_p2_rotateRight</object>
           </objects>
+          <object>objects\obj_keybind_button_parent</object>
         </objects>
-        <object>objects\obj_keybind_button_parent</object>
+        <objects name="Controller_settings">
+          <object>objects\obj_lobbyLocalGame_controllerSetting_parent</object>
+        </objects>
+        <object>objects\obj_keybind_checkForGamepads</object>
         <object>objects\obj_lobbyLocalGameConfirmChanges</object>
         <object>objects\obj_lobbyLocalGameController</object>
       </objects>
@@ -258,6 +276,9 @@
           <object>objects\obj_powerup_carpetbomber_distance_checker</object>
           <object>objects\obj_powerup_carpetbomber_bomb</object>
         </objects>
+        <objects name="Shield">
+          <object>objects\obj_powerup_shield</object>
+        </objects>
         <object>objects\obj_powerup_creator</object>
       </objects>
       <objects name="Effects">
@@ -285,13 +306,14 @@
       <object>objects\obj_speedboost</object>
       <object>objects\obj_landParent</object>
       <object>objects\obj_game_controller</object>
+      <object>objects\obj_solid_parent</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room_game_1</room>
     <room>rooms\room_mainMenu</room>
     <room>rooms\room_LobbyKeybindingLocalGame</room>
     <room>rooms\room_LobbyCustomizationLocalGame</room>
-    <room>rooms\room_game_1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

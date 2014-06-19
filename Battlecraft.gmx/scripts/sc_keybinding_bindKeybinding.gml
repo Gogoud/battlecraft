@@ -1,9 +1,10 @@
-if(mouse_check_button_pressed(mb_left))
-{
 
-    if(position_meeting(mouse_x, mouse_y, id))
+if(position_meeting(mouse_x, mouse_y, id))
+{
+    image_index = 1;
+    if(mouse_check_button_pressed(mb_left))
     {
-    
+
         if(keyboard_lastkey != -1)
         {
             //Unbind all other similar keys
@@ -30,4 +31,10 @@ if(mouse_check_button_pressed(mb_left))
     
     }
 
+}
+else
+{
+
+    image_index = 0;
+    
 }
